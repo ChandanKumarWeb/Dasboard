@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import Login from './Components/Login';
+// import Sidebar from './Components/Sidebar'; 
+import Users from './Components/Users';
+import Dashboard from './Components/Dashboard';
+import Product from './Components/Product'
+import Employees from './Components/Employees';
+import Tasks from './Components/Tasks';
+import Profile from './Components/Profile';
+import History from './Components/History';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPageWrapper />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/users" element={<Users/>} />
+        <Route path="/products" element={<Product/>} />
+        <Route path="/employees" element={<Employees/>} />
+        <Route path="/tasks" element={<Tasks/>} />
+        <Route path="/profile" element={<Profile/>} />
+        <Route path="/history" element={<History/>} />
+      </Routes>
+    </Router>
   );
+}
+
+function LoginPageWrapper() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // Simulate successful login logic here
+    navigate('/dashboard');
+  };
+
+  return <Login onLogin={handleLogin} />;
 }
 
 export default App;
