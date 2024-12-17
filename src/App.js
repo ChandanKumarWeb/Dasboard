@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './Components/Login';
-// import Sidebar from './Components/Sidebar'; 
 import Users from './Components/Users';
 import Dashboard from './Components/Dashboard';
 import Product from './Components/Product'
@@ -30,7 +29,6 @@ function LoginPageWrapper() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Simulate successful login logic here
     navigate('/dashboard');
   };
 
